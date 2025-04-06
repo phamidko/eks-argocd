@@ -1,0 +1,38 @@
+Frontend:
+  enabled: true
+  replicaCount: 1
+
+  image:
+    # repository: phamiducla/nginx
+    # pullPolicy: IfNotPresent
+    # tag: "3.20@sha256:8d775d05d707fa1e85e22d7e91884aa1c1cc488eaeea97a3a85dc7c177b23861"
+
+    repository: phamiducla/optum_ngnix
+    pullPolicy: IfNotPresent
+    tag: "3.20@sha256:817c23eb0a34f5183014b082d5527221577ec30be3b5a37e0dcb622a74867231"
+
+  imagePullSecrets: []
+
+  ingress:
+    enabled: true
+    className: ""
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+    hosts:
+      - host: nginx.phamid.io
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
