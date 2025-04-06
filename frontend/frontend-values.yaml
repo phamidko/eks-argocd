@@ -1,6 +1,6 @@
 Frontend:
   enabled: true
-  replicaCount: 1
+  replicaCount: 3
 
   image:
     # repository: phamiducla/nginx
